@@ -1,24 +1,40 @@
 <br />
 
 <div class="booyah-box col-10 offset-1">
-  <h1><%= @courses.title %></h1>
-  <br />
-  <div class="row">
-  	<div class="col-sm-4 col-12 text-center">
-  		<span class="badge badge-default">
-  			<%= number_to_currency @courses.cost %>
-  		</span>
+<h1><%= @courses.title %></h1>
+<br />
+<div class="row">
+  <div class="col-sm-4 col-12">
+    <span class="badge badge-default">
+      <%= number_to_currency @courses.cost %>
+    </span>
 
-  		<% if current_user && current_user == @courses.user %>
-  			<br />
-  			<br />
-  			<%= link_to 'Administer', instructor_course_path(@courses), class: 'btn btn-danger btn-large' %>
-  		<% end %>
-
-  	</div>
-
-  	<div class="col-sm-8 col-12">
-  		<%= @courses.description %>
-  	</div>
+    <% if current_user && current_user == @courses.user %>
+      <br />
+      <br />
+      <%= link_to 'Administer', instructor_course_path(@courses), class: 'btn btn-danger btn-large' %>
+    <% end %>
   </div>
+
+  <div class="col-sm-8 col-12">
+    <%= @courses.description %>
+  </div>
+</div>
+
+<div class="col-12">
+  <% @courses.sections.each do |section| %>
+    <div class="section">
+      <%= section.title %>
+      <% section.lessons.each do |lesson| %>
+        <div class="lesson">
+         <%= link_to lesson_path(lesson) do %> 
+          <b><%= lesson.title %></b>
+          -
+          <%= lesson.subtitle %>
+      <% end %>
+       </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
 </div>
