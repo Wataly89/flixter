@@ -10,13 +10,8 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
-//= require rails-ujs
-//= require jquery
-//= require jquery_ujs
-//= require turbolinks
-//= require popper
-//= require tether
-//= require bootstrap-sprockets
-//= require_tree .
-//= require jquery-ui
+ *= require_tree .
+ *= require_self
+ *= require jquery-ui
+ *= require font-awesome
  */
