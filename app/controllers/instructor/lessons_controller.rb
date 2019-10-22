@@ -6,6 +6,7 @@ class Instructor::LessonsController < ApplicationController
 
   def new
     @lesson = Lesson.new
+    
   end
 
   def create
@@ -19,7 +20,7 @@ class Instructor::LessonsController < ApplicationController
   end
 
   private
-  
+
   def current_lesson
     @current_lesson ||= Lesson.find(params[:id])
   end
