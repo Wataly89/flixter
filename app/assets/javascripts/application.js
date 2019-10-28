@@ -17,7 +17,8 @@
 //= require turbolinks
 //= require popper
 //= require tether
-//= require bootstrap-sprockets
 //= require_tree .
 //= require jquery-ui
-//= reqiure jquery-ui/sortable
+//= require bootstrap-sprockets
+
+
